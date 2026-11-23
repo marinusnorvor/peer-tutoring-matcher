@@ -1,7 +1,23 @@
 package tutoring.model;
 
-import tutoring.storage.Savable;
+// The base class for every kind of tutoring session.
+public abstract class Session {
+    private int id;
+    private String status;
 
-// A session is a booked tutoring meeting.
-public abstract class Session implements Savable {
+    public Session(int id, String status) {
+        this.id = id;
+        this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    // Each kind of session sets its own limit.
+    public abstract int maxParticipants();
 }
